@@ -1,7 +1,3 @@
-Here's an improved version of the README with additional clarity and better formatting. It includes all necessary details for setting up monitoring for Keycloak with Prometheus and Grafana on Azure Kubernetes Service (AKS):
-
----
-
 # Keycloak Monitoring with Prometheus and Grafana on AKS
 
 ## Overview
