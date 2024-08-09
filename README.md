@@ -81,7 +81,7 @@ Enable the metrics listener from the Keycloak admin console:
 
 ### 8. Configure Prometheus for Scraping
 
-We have modified `prometheus/values.yaml` to set up scraping of Keycloak metrics and deploy Prometheus:
+We have modified `prometheus/values.yaml` to set up scraping of Keycloak metrics:
 ```yaml
 scrape_configs:
   - job_name: 'keycloak'
@@ -111,7 +111,7 @@ scrape_configs:
 
 ### 9. Install Prometheus
 
-Install Prometheus using Helm:
+Install Prometheus using Helm and the custom values.yaml:
 ```bash
 helm install my-prometheus prometheus-community/prometheus --namespace my-namespace -f prometheus/values.yaml
 ```
