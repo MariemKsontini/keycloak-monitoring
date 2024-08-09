@@ -1,0 +1,39 @@
+## Keycloak Service configuration
+service:
+  type: ClusterIP
+  port: 8080
+  httpsPort: 8443
+
+## Enable persistence using a default StorageClass
+persistence:
+  enabled: true
+  storageClass: ""
+  size: 3Gi
+
+podLabels:
+  app: keycloak
+
+## Add pod annotations for Prometheus scraping
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "8080"
+  prometheus.io/path: "/realms/master/metrics"
+
+## Admin user configuration
+auth:
+  createAdminUser: true
+  adminUser: admin
+  adminPassword: password
+
+## Database configuration (embedded PostgreSQL)
+postgresql:
+  enabled: true
+  postgresPassword: password
+  database: keycloak
+  service:
+    port: 5432
+
+## Metrics configuration
+extraEnv:
+  - name: KC_METRICS_ENABLED
+    value: "true"
