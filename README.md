@@ -122,14 +122,25 @@ Deploy Grafana and configure it to use Prometheus as the data source:
 ```bash
 helm install my-grafana grafana/grafana --namespace my-namespace
 ```
+
+### 11. Retrieve Grafana Admin Password
+
+After installing Grafana, retrieve the admin password needed to log into the Grafana dashboard with the following command:
+```bash
+echo $(kubectl get secret --namespace my-namespace my-grafana -o jsonpath="{.data.admin-password}" | base64 --decode)
+```
+
+### 12. Configure Grafana Dashboard
+
 - Navigate to **Configuration -> Data Sources** in Grafana.
 - Add Prometheus as a data source.
 - Import the Keycloak dashboard with ID `19659`.
 
 ## Verification
 
-Check that Prometheus is successfully scraping metrics from Keycloak and that Grafana displays these metrics on the dashboard.
+Ensure that Prometheus is successfully scraping metrics from Keycloak and that Grafana displays these metrics on the dashboard.
 
 ## Conclusion
 
 Your Keycloak instance is now being monitored with Prometheus and Grafana. This setup allows for efficient visualization and management of Keycloak's performance metrics, enhancing your ability to maintain and optimize the system.
+![Screenshot from 2024-07-24 16-46-07](https://github.com/user-attachments/assets/22e848c9-357d-4547-b509-a9a92951302a)
