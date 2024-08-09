@@ -138,9 +138,11 @@ echo $(kubectl get secret --namespace my-namespace my-grafana -o jsonpath="{.dat
 
 ## Verification
 
+
 Ensure that Prometheus is successfully scraping metrics from Keycloak and that Grafana displays these metrics on the dashboard.
+
+![Screenshot from 2024-07-24 16-46-07](https://github.com/user-attachments/assets/22e848c9-357d-4547-b509-a9a92951302a)
 
 ## Conclusion
 
 Your Keycloak instance is now being monitored with Prometheus and Grafana. This setup allows for efficient visualization and management of Keycloak's performance metrics, enhancing your ability to maintain and optimize the system.
-![Screenshot from 2024-07-24 16-46-07](https://github.com/user-attachments/assets/22e848c9-357d-4547-b509-a9a92951302a)
